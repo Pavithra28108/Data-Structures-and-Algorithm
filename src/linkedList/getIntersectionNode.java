@@ -3,11 +3,11 @@ package linkedList;
 public class getIntersectionNode {
 
     // Function to get intersection node
-    public static Node getIntersectionNode(Node headA, Node headB) {
+    public static LinkedList.Node getIntersectionNode(LinkedList.Node headA, LinkedList.Node headB) {
         if (headA == null || headB == null) return null;
 
-       Node pA = headA;
-        Node pB = headB;
+       LinkedList.Node pA = headA;
+        LinkedList.Node pB = headB;
 
         while (pA != pB) {
             pA = (pA == null) ? headB : pA.next;
@@ -26,23 +26,23 @@ public class getIntersectionNode {
         */
 
         // Creating shared part [8 -> 4 -> 5]
-        Node intersect = new Node(8);
-        intersect.next = new Node(4);
-        intersect.next.next = new Node(5);
+        LinkedList.Node intersect = new LinkedList.Node(8);
+        intersect.next = new LinkedList.Node(4);
+        intersect.next.next = new LinkedList.Node(5);
 
         // Creating listA [4 -> 1 -> (intersect)]
-        Node headA = new Node(4);
-        headA.next = new Node(1);
+        LinkedList.Node headA = new LinkedList.Node(4);
+        headA.next = new LinkedList.Node(1);
         headA.next.next = intersect;
 
         // Creating listB [5 -> 6 -> 1 -> (intersect)]
-        Node headB = new Node(5);
-        headB.next = new Node(6);
-        headB.next.next = new Node(1);
+        LinkedList.Node headB = new LinkedList.Node(5);
+        headB.next = new LinkedList.Node(6);
+        headB.next.next = new LinkedList.Node(1);
         headB.next.next.next = intersect;
 
         // Find intersection
-        Node result = getIntersectionNode(headA, headB);
+        LinkedList.Node result = getIntersectionNode(headA, headB);
 
         if (result != null) {
             System.out.println("Intersected at '" + result.data + "'");
